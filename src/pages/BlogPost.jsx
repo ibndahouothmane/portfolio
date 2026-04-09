@@ -119,7 +119,7 @@ function BlogPostContent() {
       '@type': 'Person',
       name: post.author?.node?.name || 'Othmane Ibn Dahou Idrissi'
     },
-    mainEntityOfPage: `https://example.com${blogPostPath}`,
+    mainEntityOfPage: `https://othmanewp.com${blogPostPath}`,
     image: post.featuredImage?.node?.sourceUrl || undefined
   };
 

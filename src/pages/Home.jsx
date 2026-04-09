@@ -36,7 +36,7 @@ function Home() {
     '@type': 'Person',
     name: 'Othmane Ibn Dahou Idrissi',
     jobTitle: 'WordPress and Full-Stack Web Developer',
-    url: 'https://example.com/',
+    url: 'https://othmanewp.com/',
     address: {
       '@type': 'PostalAddress',
       addressCountry: 'MA',

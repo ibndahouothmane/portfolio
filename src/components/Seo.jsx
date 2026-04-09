@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 
-const DEFAULT_SITE_URL = import.meta.env.VITE_SITE_URL || 'https://example.com';
+const DEFAULT_SITE_URL = import.meta.env.VITE_SITE_URL || 'https://othmanewp.com';
 const DEFAULT_IMAGE = `${DEFAULT_SITE_URL}/og-image.jpg`;
 
 function stripHtml(input = '') {

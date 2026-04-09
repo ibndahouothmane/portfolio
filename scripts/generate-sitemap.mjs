@@ -1,7 +1,7 @@
 import { writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
-const SITE_URL = (process.env.VITE_SITE_URL || 'https://api.othmanewp.com').replace(/\/$/, '');
+const SITE_URL = (process.env.VITE_SITE_URL || 'https://othmanewp.com').replace(/\/$/, '');
 const GRAPHQL_URL = process.env.VITE_GRAPHQL_URL || 'https://api.othmanewp.com/graphql';
 
 const query = `
