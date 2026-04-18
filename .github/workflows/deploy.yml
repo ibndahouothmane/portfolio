@@ -35,9 +35,10 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/
-          server-dir: /
-          dangerous-clean-slate: true
+          server-dir: /public_html/
+          dangerous-clean-slate: false
+          protocol: ftps        
+          port: 21
           exclude: |
             **/.git*
             **/.git*/**
-            **/node_modules/**
