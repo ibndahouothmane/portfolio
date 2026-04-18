@@ -40,6 +40,6 @@ jobs:
             set net:max-retries 5;
             set net:reconnect-interval-base 5;
             open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_SERVER }};
-            mirror --reverse --delete --verbose --no-perms --parallel=5 dist/ /domains/othmanewp.com/public_html/;
+            mirror --reverse --delete --verbose --no-perms --parallel=5 --exclude enset/ --exclude staging/ dist/ /domains/othmanewp.com/public_html/;
             bye
           "
