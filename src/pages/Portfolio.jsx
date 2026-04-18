@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import Seo from '../components/Seo';
 import ApolloProviderWrapper from '../components/ApolloProviderWrapper';
-import './Portfolio.css';
+import "../components/Portfolio.css";
 
 const GET_PORTFOLIO = gql`
   query GetPortfolio {
