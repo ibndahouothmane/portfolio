@@ -28,15 +28,16 @@ jobs:
       - name: List build files
         run: ls -la dist && find dist -maxdepth 2 -type f | head -50
 
-      - name: Upload dist folder via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftps
-          port: 21
-          local-dir: ./dist/
-          server-dir: ./
-          log-level: verbose
-          dangerous-clean-slate: false
+- name: Upload dist folder via FTP
+  uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+  with:
+    server: ${{ secrets.FTP_SERVER }}
+    username: ${{ secrets.FTP_USERNAME }}
+    password: ${{ secrets.FTP_PASSWORD }}
+    local-dir: ./dist/
+    server-dir: /public_html/
+    dangerous-clean-slate: true
+    exclude: |
+      **/.git*
+      **/.git*/**
+      **/node_modules/**
