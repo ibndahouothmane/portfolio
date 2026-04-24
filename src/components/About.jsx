@@ -1,7 +1,7 @@
 import './About.css';
 import { useEffect, useRef, useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import profileImage from '../assets/optimized/profile-pic-747x1024.webp';
+import profileImage from '../assets/optimized/me.webp';
 
 function About() {
   const { t } = useLanguage();
