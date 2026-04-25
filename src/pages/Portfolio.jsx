@@ -30,7 +30,7 @@ function PortfolioContent() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [websiteLink, setWebsiteLink] = useState('');
   const [websiteLinkLoading, setWebsiteLinkLoading] = useState(false);
-  const staticTechStack = ['WordPress', 'ACF', 'Tailwind CSS', 'JavaScript'];
+  const staticTechStack = ['WordPress', 'PHP', 'JavaScript'];
 
   const { loading, error, data } = useQuery(GET_PORTFOLIO);
 
@@ -162,7 +162,7 @@ function PortfolioContent() {
                 </div>
                 <div className="portfolio-info">
                   <h3>{project.title}</h3>
-                  <div 
+                  <div
                     className="technologies"
                     dangerouslySetInnerHTML={{ __html: project.excerpt }}
                   />
