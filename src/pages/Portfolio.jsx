@@ -30,7 +30,6 @@ function PortfolioContent() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [websiteLink, setWebsiteLink] = useState('');
   const [websiteLinkLoading, setWebsiteLinkLoading] = useState(false);
-  const staticTechStack = ['WordPress', 'PHP', 'JavaScript'];
 
   const { loading, error, data } = useQuery(GET_PORTFOLIO);
 
@@ -205,15 +204,6 @@ function PortfolioContent() {
                   className="modal-description"
                   dangerouslySetInnerHTML={{ __html: selectedProject.content }}
                 />
-
-                <div className="modal-tech-stack">
-                  <h3>Technologies</h3>
-                  <div className="modal-tech-list">
-                    {staticTechStack.map((tech) => (
-                      <span key={tech} className="modal-tech-tag">{tech}</span>
-                    ))}
-                  </div>
-                </div>
 
                 {websiteLink && (
                   <div className="modal-actions">
