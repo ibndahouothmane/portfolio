@@ -7,7 +7,7 @@ import "./portfolio.css";
 
 const GET_PORTFOLIO = gql`
   query GetPortfolio {
-    portfolio {
+    portfolio(first: 100) {
       nodes {
         id
         title
