@@ -30,6 +30,7 @@ function PortfolioContent() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [websiteLink, setWebsiteLink] = useState('');
   const [websiteLinkLoading, setWebsiteLinkLoading] = useState(false);
+  const [displayCount, setDisplayCount] = useState(10);
 
   const { loading, error, data } = useQuery(GET_PORTFOLIO);
 
@@ -106,6 +107,8 @@ function PortfolioContent() {
   }
 
   const projects = data?.portfolio?.nodes || [];
+  const displayedProjects = projects.slice(0, displayCount);
+  const hasMore = projects.length > displayCount;
 
   return (
     <div className="portfolio-page">
@@ -131,44 +134,56 @@ function PortfolioContent() {
 
         {/* Portfolio Grid */}
         {projects.length > 0 ? (
-          <div className="portfolio-grid">
-            {projects.map((project, index) => (
-              <div
-                key={project.id}
-                className="portfolio-card"
-                style={{ animationDelay: `${index * 0.1}s` }}
-                onClick={() => setSelectedProject(project)}
-              >
-                <div className="portfolio-image">
-                  {project.featuredImage ? (
-                    <img
-                      src={project.featuredImage.node.sourceUrl}
-                      alt={project.featuredImage.node.altText || project.title}
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  ) : (
-                    <div className="portfolio-placeholder">
-                      <span>💼</span>
-                    </div>
-                  )}
-                  <div className="portfolio-overlay">
-                    <div className="overlay-content">
-                      <h3>{project.title}</h3>
-                      <button className="view-btn">{t('portfolio.viewDetails')}</button>
+          <>
+            <div className="portfolio-grid">
+              {displayedProjects.map((project, index) => (
+                <div
+                  key={project.id}
+                  className="portfolio-card"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                  onClick={() => setSelectedProject(project)}
+                >
+                  <div className="portfolio-image">
+                    {project.featuredImage ? (
+                      <img
+                        src={project.featuredImage.node.sourceUrl}
+                        alt={project.featuredImage.node.altText || project.title}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    ) : (
+                      <div className="portfolio-placeholder">
+                        <span>💼</span>
+                      </div>
+                    )}
+                    <div className="portfolio-overlay">
+                      <div className="overlay-content">
+                        <h3>{project.title}</h3>
+                        <button className="view-btn">{t('portfolio.viewDetails')}</button>
+                      </div>
                     </div>
                   </div>
+                  <div className="portfolio-info">
+                    <h3>{project.title}</h3>
+                    <div
+                      className="technologies"
+                      dangerouslySetInnerHTML={{ __html: project.excerpt }}
+                    />
+                  </div>
                 </div>
-                <div className="portfolio-info">
-                  <h3>{project.title}</h3>
-                  <div
-                    className="technologies"
-                    dangerouslySetInnerHTML={{ __html: project.excerpt }}
-                  />
-                </div>
+              ))}
+            </div>
+            {hasMore && (
+              <div className="load-more-container">
+                <button
+                  className="load-more-btn"
+                  onClick={() => setDisplayCount(prev => prev + 10)}
+                >
+                  {t('portfolio.loadMore') || 'Load More'} ({displayCount} of {projects.length})
+                </button>
               </div>
-            ))}
-          </div>
+            )}
+          </>
         ) : (
           <div className="empty-state">
             <h3>{t('portfolio.noProjects')}</h3>
