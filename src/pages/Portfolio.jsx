@@ -179,7 +179,7 @@ function PortfolioContent() {
                   className="load-more-btn"
                   onClick={() => setDisplayCount(prev => prev + 10)}
                 >
-                  {t('portfolio.loadMore') || 'Load More'} ({displayCount} of {projects.length})
+                  Load More ({displayCount} of {projects.length})
                 </button>
               </div>
             )}
