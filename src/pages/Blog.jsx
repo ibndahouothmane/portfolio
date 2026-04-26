@@ -195,7 +195,7 @@ function BlogContent() {
     // Filter by search query
     const matchesSearch = searchQuery.trim()
       ? post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        post.excerpt.toLowerCase().includes(searchQuery.toLowerCase())
+      post.excerpt.toLowerCase().includes(searchQuery.toLowerCase())
       : true;
 
     return matchesCategory && matchesSearch;
@@ -224,7 +224,7 @@ function BlogContent() {
       <div className="blog-container">
         {/* Mobile Filter Toggle Button */}
         <div className="mobile-filter-toggle">
-          <button 
+          <button
             className="filter-toggle-btn"
             onClick={() => setShowMobileFilters(!showMobileFilters)}
           >
@@ -241,7 +241,7 @@ function BlogContent() {
             <div className="mobile-filters-popup" onClick={(e) => e.stopPropagation()}>
               <div className="mobile-filters-header">
                 <h2>{t('blogPage.filters')}</h2>
-                <button 
+                <button
                   className="close-btn"
                   onClick={() => setShowMobileFilters(false)}
                 >
@@ -252,9 +252,9 @@ function BlogContent() {
                 {/* Search */}
                 <div className="filter-section">
                   <h3>{t('blogPage.search')}</h3>
-                  <input 
-                    type="text" 
-                    placeholder={t('blogPage.searchPlaceholder')} 
+                  <input
+                    type="text"
+                    placeholder={t('blogPage.searchPlaceholder')}
                     className="search-input"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
@@ -265,7 +265,7 @@ function BlogContent() {
                 <div className="filter-section">
                   <h3>{t('blogPage.categories')}</h3>
                   <ul className="category-list">
-                    <li 
+                    <li
                       className={!selectedCategory ? 'active' : ''}
                       onClick={() => {
                         setSelectedCategory(null);
@@ -277,22 +277,22 @@ function BlogContent() {
                     {categories
                       .filter(category => category.name.toLowerCase() !== 'uncategorized')
                       .map(category => (
-                      <li 
-                        key={category.id}
-                        className={selectedCategory === category.slug ? 'active' : ''}
-                        onClick={() => {
-                          setSelectedCategory(category.slug);
-                          setShowMobileFilters(false);
-                        }}
-                      >
-                        <span>{category.name}</span>
-                      </li>
-                    ))}
+                        <li
+                          key={category.id}
+                          className={selectedCategory === category.slug ? 'active' : ''}
+                          onClick={() => {
+                            setSelectedCategory(category.slug);
+                            setShowMobileFilters(false);
+                          }}
+                        >
+                          <span>{category.name}</span>
+                        </li>
+                      ))}
                   </ul>
                 </div>
               </div>
               <div className="mobile-filters-footer">
-                <button 
+                <button
                   className="apply-filters-btn"
                   onClick={() => setShowMobileFilters(false)}
                 >
@@ -304,15 +304,15 @@ function BlogContent() {
         )}
 
         <div className="blog-layout">
-          
+
           {/* Sidebar */}
           <aside className="blog-sidebar">
             {/* Search */}
             <div className="sidebar-widget">
               <h3>{t('blogPage.search')}</h3>
-              <input 
-                type="text" 
-                placeholder={t('blogPage.searchPlaceholder')} 
+              <input
+                type="text"
+                placeholder={t('blogPage.searchPlaceholder')}
                 className="search-input"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
@@ -323,7 +323,7 @@ function BlogContent() {
             <div className="sidebar-widget">
               <h3>{t('blogPage.categories')}</h3>
               <ul className="category-list">
-                <li 
+                <li
                   className={!selectedCategory ? 'active' : ''}
                   onClick={() => setSelectedCategory(null)}
                 >
@@ -333,15 +333,15 @@ function BlogContent() {
                 {categories
                   .filter(category => category.name.toLowerCase() !== 'uncategorized')
                   .map(category => (
-                  <li 
-                    key={category.id}
-                    className={selectedCategory === category.slug ? 'active' : ''}
-                    onClick={() => setSelectedCategory(category.slug)}
-                  >
-                    <span>{category.name}</span>
-                    <span className="count">{category.count}</span>
-                  </li>
-                ))}
+                    <li
+                      key={category.id}
+                      className={selectedCategory === category.slug ? 'active' : ''}
+                      onClick={() => setSelectedCategory(category.slug)}
+                    >
+                      <span>{category.name}</span>
+                      <span className="count">{category.count}</span>
+                    </li>
+                  ))}
               </ul>
             </div>
 
@@ -362,7 +362,7 @@ function BlogContent() {
 
             {/* Newsletter */}
             <div className="sidebar-widget newsletter-widget">
-              <h3>📬 {t('blogPage.newsletterTitle')}</h3>
+              <h3>{t('blogPage.newsletterTitle')}</h3>
               <p>{t('blogPage.newsletterDescription')}</p>
 
               {newsletterStatus.submitted && (
@@ -395,16 +395,16 @@ function BlogContent() {
               <>
                 <div className="blog-grid">
                   {filteredPosts.map((post, index) => (
-                    <article 
-                      key={post.id} 
+                    <article
+                      key={post.id}
                       className="blog-card"
                       style={{ animationDelay: `${index * 0.1}s` }}
                     >
                       <Link to={`/blog/${post.slug}`} className="blog-card-link">
                         <div className="blog-image">
                           {post.featuredImage ? (
-                            <img 
-                              src={post.featuredImage.node.sourceUrl} 
+                            <img
+                              src={post.featuredImage.node.sourceUrl}
                               alt={post.featuredImage.node.altText || post.title}
                               loading="lazy"
                               decoding="async"
@@ -420,11 +420,11 @@ function BlogContent() {
                             </span>
                           )}
                         </div>
-                        
+
                         <div className="blog-content">
                           <h2 className="blog-title">{post.title}</h2>
-                          <div 
-                            className="blog-excerpt" 
+                          <div
+                            className="blog-excerpt"
                             dangerouslySetInnerHTML={{ __html: post.excerpt }}
                           />
                           <div className="blog-footer">
@@ -449,8 +449,8 @@ function BlogContent() {
                 {/* Load More Button */}
                 {data?.posts?.pageInfo?.hasNextPage && (
                   <div className="load-more-wrapper">
-                    <button 
-                      className="load-more-btn" 
+                    <button
+                      className="load-more-btn"
                       onClick={loadMore}
                       disabled={loading}
                     >
