@@ -12,7 +12,7 @@ function Experience() {
       location: 'On-site',
       positions: [
         {
-          title: 'Junior Developer / Tailwind & Laravel',
+          title: 'Laravel & Tailwind Developer',
           period: 'Oct 2025 - Feb 2026 · 5 mos',
           items: [
             'Development of the new version of websites using Laravel (backend) and Tailwind CSS (frontend)',
