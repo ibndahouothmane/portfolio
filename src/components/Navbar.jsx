@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
 import ReactThemeToggle from './ReactThemeToggle';
@@ -24,6 +24,26 @@ function Navbar() {
       document.removeEventListener('mousedown', handleOutsideClick);
     };
   }, []);
+
+  useEffect(() => {
+    const previousOverflow = document.body.style.overflow;
+
+    const handleEscape = (event) => {
+      if (event.key === 'Escape') {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+      document.addEventListener('keydown', handleEscape);
+    }
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener('keydown', handleEscape);
+    };
+  }, [isOpen]);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -77,24 +97,37 @@ function Navbar() {
           />
         </Link>
 
-        <div className={`nav-menu ${isOpen ? 'active' : ''}`}>
+        <button
+          className={`nav-backdrop ${isOpen ? 'active' : ''}`}
+          onClick={closeMenu}
+          aria-label={t('nav.closeMenu')}
+          tabIndex={isOpen ? 0 : -1}
+          type="button"
+        />
+
+        <div className={`nav-menu ${isOpen ? 'active' : ''}`} id="primary-navigation">
           <ul className="nav-list">
             <li className="nav-item">
-              <Link to="/" className="nav-link" onClick={closeMenu}>{t('nav.home')}</Link>
+              <NavLink to="/" end className={({ isActive }) => `nav-link${isActive ? ' current' : ''}`} onClick={closeMenu}>{t('nav.home')}</NavLink>
             </li>
             <li className="nav-item">
-              <Link to="/blog" className="nav-link" onClick={closeMenu}>{t('nav.blog')}</Link>
+              <NavLink to="/blog" className={({ isActive }) => `nav-link${isActive ? ' current' : ''}`} onClick={closeMenu}>{t('nav.blog')}</NavLink>
             </li>
             <li className="nav-item">
-              <Link to="/portfolio" className="nav-link" onClick={closeMenu}>{t('nav.portfolio')}</Link>
+              <NavLink to="/portfolio" className={({ isActive }) => `nav-link${isActive ? ' current' : ''}`} onClick={closeMenu}>{t('nav.portfolio')}</NavLink>
             </li>
             <li className="nav-item">
-              <Link to="/about" className="nav-link" onClick={closeMenu}>{t('nav.about')}</Link>
+              <NavLink to="/about" className={({ isActive }) => `nav-link${isActive ? ' current' : ''}`} onClick={closeMenu}>{t('nav.about')}</NavLink>
             </li>
             <li className="nav-item">
-              <Link to="/contact" className="nav-link" onClick={closeMenu}>{t('nav.contact')}</Link>
+              <NavLink to="/contact" className={({ isActive }) => `nav-link${isActive ? ' current' : ''}`} onClick={closeMenu}>{t('nav.contact')}</NavLink>
             </li>
           </ul>
+
+          <Link to="/contact" className="mobile-menu-cta" onClick={closeMenu}>
+            <span>{t('hero.getInTouch')}</span>
+            <span aria-hidden="true">→</span>
+          </Link>
         </div>
 
         <div className="nav-actions">
@@ -145,6 +178,8 @@ function Navbar() {
             className={`hamburger ${isOpen ? 'active' : ''}`}
             onClick={toggleMenu}
             aria-label={t('nav.toggleMenu')}
+            aria-controls="primary-navigation"
+            aria-expanded={isOpen}
             type="button"
           >
             <span></span>

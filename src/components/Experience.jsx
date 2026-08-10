@@ -7,6 +7,23 @@ function Experience() {
   const experiencesEn = [
     {
       id: 1,
+      company: 'Confidential',
+      duration: 'Full-time',
+      location: 'Rabat Metropolitan Area · Full remote',
+      positions: [
+        {
+          title: 'Full-stack WordPress Developer',
+          period: 'May 2026 - Present · 4 mos',
+          items: [
+            'Building modern websites with WordPress (Bedrock), PHP, GraphQL, React, Next.js, Nunjucks, CSS, and SCSS',
+            'Experienced in custom API integrations, performance optimization, and scalable architecture',
+            'Focused on creating fast, maintainable, and user-friendly web experiences'
+          ]
+        }
+      ]
+    },
+    {
+      id: 2,
       company: 'AUTO DEALERS DIGITAL',
       duration: 'Full-time · 1 yr 10 mos',
       location: 'On-site',
@@ -46,7 +63,7 @@ function Experience() {
       ]
     },
     {
-      id: 2,
+      id: 3,
       company: 'SOORCIN',
       duration: 'Full-time · 1 yr 8 mos',
       location: 'Casablanca, Morocco',
@@ -65,7 +82,7 @@ function Experience() {
       ]
     },
     {
-      id: 3,
+      id: 4,
       company: 'INFINIPRINT',
       duration: 'Full-time · 4 mos',
       location: 'Casablanca, Morocco',
@@ -84,7 +101,7 @@ function Experience() {
       ]
     },
     {
-      id: 4,
+      id: 5,
       position: 'PHP & WordPress Developer Intern',
       company: 'PLUTUS∞ (Internship)',
       period: 'Sep 2021 - May 2022 · 9 mos',
@@ -98,7 +115,7 @@ function Experience() {
       ]
     },
     {
-      id: 5,
+      id: 6,
       position: 'Full-Stack Web Developer Intern (PHP/JS/SQL)',
       company: 'NOTILIX (Internship)',
       period: 'Mar 2021 - Apr 2021 · 2 mos',
@@ -111,7 +128,7 @@ function Experience() {
       ]
     },
     {
-      id: 6,
+      id: 7,
       company: 'DK GROUP (Internship)',
       duration: 'Internship · 4 mos',
       location: 'Mohammedia, Morocco',
@@ -173,6 +190,23 @@ function Experience() {
   const experiencesFr = [
     {
       id: 1,
+      company: 'Confidentiel',
+      duration: 'Temps plein',
+      location: 'Rabat, Maroc · A distance',
+      positions: [
+        {
+          title: 'Developpeur Full-Stack WordPress',
+          period: 'Mai 2026 - Present · 4 mois',
+          items: [
+            'Creation de sites web modernes avec WordPress (Bedrock), PHP, GraphQL, React, Next.js, Nunjucks, CSS et SCSS',
+            'Experience en integrations API personnalisees, optimisation des performances et architecture evolutive',
+            'Conception d experiences web rapides, maintenables et conviviales'
+          ]
+        }
+      ]
+    },
+    {
+      id: 2,
       company: 'AUTO DEALERS DIGITAL',
       duration: 'Temps plein · 1 an 10 mois',
       location: 'Sur site',
@@ -212,7 +246,7 @@ function Experience() {
       ]
     },
     {
-      id: 2,
+      id: 3,
       company: 'SOORCIN',
       duration: 'Temps plein · 1 an 8 mois',
       location: 'Casablanca, Maroc',
@@ -231,7 +265,7 @@ function Experience() {
       ]
     },
     {
-      id: 3,
+      id: 4,
       company: 'INFINIPRINT',
       duration: 'Temps plein · 4 mois',
       location: 'Casablanca, Maroc',
@@ -250,7 +284,7 @@ function Experience() {
       ]
     },
     {
-      id: 4,
+      id: 5,
       position: 'Developpeur PHP & WordPress',
       company: 'PLUTUS∞ (Stage)',
       period: 'Sep 2021 - Mai 2022 · 9 mois',
@@ -264,7 +298,7 @@ function Experience() {
       ]
     },
     {
-      id: 5,
+      id: 6,
       position: 'Developpeur Web Full-Stack (PHP/JS/SQL)',
       company: 'NOTILIX (Stage)',
       period: 'Mar 2021 - Avr 2021 · 2 mois',
@@ -277,7 +311,7 @@ function Experience() {
       ]
     },
     {
-      id: 6,
+      id: 7,
       company: 'DK GROUP (Stage)',
       duration: 'Stage · 4 mois',
       location: 'Mohammedia, Maroc',

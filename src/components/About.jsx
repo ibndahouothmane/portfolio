@@ -75,7 +75,7 @@ function About() {
             <p>
               {t('about.paragraph3')}
             </p>
-            
+
             <div className="about-stats" ref={statsRef}>
               <div className="stat-item">
                 <h3>{counters.projects}+</h3>
@@ -91,19 +91,19 @@ function About() {
               </div>
             </div>
 
-            <a href="/resume.pdf" className="btn btn-primary" download>
+            {/* <a href="/resume.pdf" className="btn btn-primary" download>
               {t('about.downloadCv')}
-            </a>
+            </a> */}
           </div>
 
           <div className="about-image">
-            <img 
+            <img
               src={profileImage}
               width="747"
               height="1024"
               loading="lazy"
               decoding="async"
-              alt="About me" 
+              alt="About me"
               className="about-img"
             />
             <div className="about-decoration"></div>
